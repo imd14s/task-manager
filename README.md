@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Task Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Organizador de tarefas com:
 
-## Available Scripts
+- Tela de login  
+- Criação de colunas  
+- Mover tarefas entre colunas  
+- Criação de grupo de trabalho  
+- Adicionar e remover membros  
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Tecnologias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Backend: Java Spring Boot + MySQL  
+- Frontend: React.js com TypeScript + Tailwind CSS  
+- Banco de dados: MySQL  
+- Containerização: Docker + Docker Compose  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Checklist para finalizar o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [ ] Implementar tela de login  
+- [ ] Criar funcionalidades de colunas para organizar tarefas  
+- [ ] Implementar movimentação de tarefas entre colunas  
+- [ ] Desenvolver criação de grupos de trabalho  
+- [ ] Permitir adicionar e remover membros nos grupos  
+- [ ] Configurar banco MySQL integrado ao backend  
+- [ ] Estilizar frontend com Tailwind CSS  
+- [ ] Testar integração entre frontend, backend e banco  
+- [ ] Criar pipeline CI/CD (opcional)  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como rodar o projeto localmente
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Pré-requisitos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Docker e Docker Compose instalados  
+- Git  
 
-### `npm run eject`
+### Passos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone o repositório
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone <url-do-repositorio>
+cd task-manager
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Crie o arquivo `.env` na raiz com as variáveis:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```env
+# Banco de dados MySQL
+MYSQL_ROOT_PASSWORD=sua_senha_root
+MYSQL_DATABASE=taskmanager
+MYSQL_USER=taskuser
+MYSQL_PASSWORD=taskpassword
 
-## Learn More
+# Backend
+SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/taskmanager
+SPRING_DATASOURCE_USERNAME=taskuser
+SPRING_DATASOURCE_PASSWORD=taskpassword
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Frontend
+# (adicione aqui se necessário)
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Suba os containers com Docker Compose
 
-### Code Splitting
+```bash
+docker compose up --build -d
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Acesse:
 
-### Analyzing the Bundle Size
+- Backend: http://localhost:8080  
+- Frontend: http://localhost:5173 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Para parar os containers:
 
-### Making a Progressive Web App
+```bash
+docker compose down
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Estrutura do projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+task-manager/
+├── backend/         # Backend Java Spring Boot
+├── frontend/        # Frontend React + TypeScript + Tailwind CSS
+├── docker-compose.yml
+├── .env
+└── README.md
+```
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se precisar de ajuda para implementar ou configurar qualquer coisa, me avise!

@@ -1,0 +1,47 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: taskmanager-mysql
+    restart: always
+    env_file: .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - taskmanager-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: taskmanager-backend
+    restart: always
+    depends_on:
+      - mysql
+    env_file: .env
+    ports:
+      - "8080:8080"
+    networks:
+      - taskmanager-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: taskmanager-frontend
+    restart: always
+    depends_on:
+      - backend
+    env_file: .env
+    ports:
+      - "5173:80"
+    networks:
+      - taskmanager-net
+
+volumes:
+  mysql_data:
+
+networks:
+  taskmanager-net:
+    driver: bridge
