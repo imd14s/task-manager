@@ -49,36 +49,18 @@ git clone <url-do-repositorio>
 cd task-manager
 ```
 
-2. Crie o arquivo `.env` na raiz com as variáveis:
-
-```env
-# Banco de dados MySQL
-MYSQL_ROOT_PASSWORD=sua_senha_root
-MYSQL_DATABASE=taskmanager
-MYSQL_USER=taskuser
-MYSQL_PASSWORD=taskpassword
-
-# Backend
-SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/taskmanager
-SPRING_DATASOURCE_USERNAME=taskuser
-SPRING_DATASOURCE_PASSWORD=taskpassword
-
-# Frontend
-# (adicione aqui se necessário)
-```
-
-3. Suba os containers com Docker Compose
+2. Suba os containers com Docker Compose
 
 ```bash
 docker compose up --build -d
 ```
 
-4. Acesse:
+3. Acesse:
 
 - Backend: http://localhost:8080  
 - Frontend: http://localhost:5173 
 
-5. Para parar os containers:
+4. Para parar os containers:
 
 ```bash
 docker compose down
