@@ -10,7 +10,53 @@
 
 # Arquivos temporários
 *.class
+*.jar# ------------------
+# Backend (Java / Maven)
+# ------------------
+/target/
+/.idea/
+/*.iml
+*.log
+*.class
 *.jar
+*.war
+/backend/.vscode/
+
+# ------------------
+# Frontend (React / Node)
+# ------------------
+/frontend/node_modules/
+/node_modules/
+/frontend/build/
+/build/
+/frontend/.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ------------------
+# VS Code
+# ------------------
+.vscode/
+.history/
+.DS_Store
+
+# ------------------
+# Docker
+# ------------------
+/docker-compose.override.yml
+/docker-data/
+.env
+
+# ------------------
+# Outras pastas temporárias e caches
+# ------------------
+/tmp/
+.cache/
+dist/
+
 *.war
 
 # Logs
