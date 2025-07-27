@@ -1,0 +1,4 @@
+com/app/taskmanager/model/Task.class
+com/app/taskmanager/model/User.class
+com/app/taskmanager/model/TaskProject.class
+com/app/taskmanager/model/TaskColumns.class
