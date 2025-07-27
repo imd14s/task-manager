@@ -1,2 +1,6 @@
 /home/imdias/workspace/task-manager/backend/src/test/java/com/app/taskmanager/model/UserTest.java
 /home/imdias/workspace/task-manager/backend/src/test/java/com/app/taskmanager/TaskmanagerApplicationTests.java
+/home/imdias/workspace/task-manager/backend/src/test/java/com/app/taskmanager/repository/UserRepositoryTest.java
+/home/imdias/workspace/task-manager/backend/src/test/java/com/app/taskmanager/model/TaskTest.java
+/home/imdias/workspace/task-manager/backend/src/test/java/com/app/taskmanager/model/TaskColumnsTest.java
+/home/imdias/workspace/task-manager/backend/src/test/java/com/app/taskmanager/model/TaskProjectTest.java

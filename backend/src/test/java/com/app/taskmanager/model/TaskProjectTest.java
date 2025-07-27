@@ -11,24 +11,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @ActiveProfiles("test")
-class UserTest {
+class TaskProjectTest {
 
     @Autowired
     private EntityManager entityManager;
 
     @Test
-    void deveSalvarERecuperarUsuario() {
+    void deveSalvarERecuperarProjeto() {
         User user = new User();
         user.setUsername("test");
         user.setPassword("123456");
         user.setEmail("test@email.com");
-
         entityManager.persist(user);
+
+        TaskProject project = new TaskProject();
+        project.setName("Projeto Test");
+        project.setUser(user);
+
+        entityManager.persist(project);
         entityManager.flush();
 
-        User encontrado = entityManager.find(User.class, user.getId());
+        TaskProject encontrado = entityManager.find(TaskProject.class, project.getId());
         assertThat(encontrado).isNotNull();
-        assertThat(encontrado.getUsername()).isEqualTo("test");
-        assertThat(encontrado.getEmail()).isEqualTo("test@email.com");
+        assertThat(encontrado.getName()).isEqualTo("Projeto Test");
+        assertThat(encontrado.getUser().getUsername()).isEqualTo("test");
     }
 }

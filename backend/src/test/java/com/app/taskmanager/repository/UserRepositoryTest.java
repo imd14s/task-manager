@@ -1,34 +1,35 @@
-package com.app.taskmanager.model;
+package com.app.taskmanager.repository;
 
+import com.app.taskmanager.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import jakarta.persistence.EntityManager;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @ActiveProfiles("test")
-class UserTest {
+class UserRepositoryTest {
 
     @Autowired
-    private EntityManager entityManager;
+    private UserRepository userRepository;
 
     @Test
-    void deveSalvarERecuperarUsuario() {
+    void deveSalvarEBuscarUsuarioPorUsername() {
+        // Cria e salva um usuário
         User user = new User();
         user.setUsername("test");
         user.setPassword("123456");
         user.setEmail("test@email.com");
 
-        entityManager.persist(user);
-        entityManager.flush();
+        userRepository.save(user);
 
-        User encontrado = entityManager.find(User.class, user.getId());
-        assertThat(encontrado).isNotNull();
-        assertThat(encontrado.getUsername()).isEqualTo("test");
-        assertThat(encontrado.getEmail()).isEqualTo("test@email.com");
+        // Busca por username
+        var foundUser = userRepository.findByUsername("test");
+
+        // Valida
+        assertThat(foundUser).isPresent();
+        assertThat(foundUser.get().getEmail()).isEqualTo("test@email.com");
     }
 }

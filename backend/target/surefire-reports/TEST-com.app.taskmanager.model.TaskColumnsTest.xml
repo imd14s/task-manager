@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.app.taskmanager.model.UserTest" time="0.025" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.app.taskmanager.model.TaskColumnsTest" time="0.038" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -58,10 +58,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="deveSalvarERecuperarUsuario" classname="com.app.taskmanager.model.UserTest" time="0.009">
-    <system-out><![CDATA[2025-07-27T14:47:48.993-03:00  INFO 36946 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.app.taskmanager.model.UserTest]: UserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-07-27T14:47:49.005-03:00  INFO 36946 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.app.taskmanager.TaskmanagerApplication for test class com.app.taskmanager.model.UserTest
-Hibernate: insert into users (email,password,username,id) values (?,?,?,default)
+  <testcase name="deveSalvarERecuperarColuna" classname="com.app.taskmanager.model.TaskColumnsTest" time="0.017">
+    <system-out><![CDATA[2025-07-27T14:47:48.937-03:00  INFO 36946 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.app.taskmanager.model.TaskColumnsTest]: TaskColumnsTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-07-27T14:47:48.950-03:00  INFO 36946 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.app.taskmanager.TaskmanagerApplication for test class com.app.taskmanager.model.TaskColumnsTest
+Hibernate: insert into task_projects (name,user_id,id) values (?,?,default)
+Hibernate: insert into task_columns (name,project_id,id) values (?,?,default)
 ]]></system-out>
   </testcase>
 </testsuite>
